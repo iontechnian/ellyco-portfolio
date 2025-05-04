@@ -24,7 +24,9 @@
 
     "types": [
       "unplugin-icons/types/react"
-    ]
+    ],
+
+    "rootDirs": [".", ".react-router/types"]
   },
-  "include": ["src"]
+  "include": ["src", ".react-router/types/**/*"]
 }

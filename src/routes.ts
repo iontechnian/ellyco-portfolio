@@ -5,7 +5,7 @@ import {
 } from "@react-router/dev/routes";
 
 export default [
-  index("./home.tsx"),
+  index("./routes/home.tsx"),
+  route("skill/:skill", "./routes/skill-info.tsx"),
   // * matches all URLs, the ? makes it optional so it will match / as well
-  route("*?", "catchall.tsx"),
 ] satisfies RouteConfig;
