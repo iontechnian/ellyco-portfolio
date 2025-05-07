@@ -1,23 +1,25 @@
+import Header from "../components/header";
+import skills from "../data/skills";
 import type { Route } from "./+types/skill-info";
 
 export function clientLoader({ params }: Route.ClientLoaderArgs) {
-  const capitalizedSkill = params.skill
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-  
-  return { skill: params.skill, capitalizedSkill };
+  const skill = skills.find((skill) => skill.id === params.skill);
+  if (!skill) {
+    throw new Response("Skill not found", { status: 404 });
+  }
+
+  return { skill };
 }
 
 export default function SkillInfo({ loaderData }: Route.ComponentProps) {
-  const { capitalizedSkill, skill } = loaderData;
-  
+  const { skill } = loaderData;
+
   return (
     <div>
-      <h1>SkillInfo</h1>
-      <p>Original: {skill}</p>
-      <p>Capitalized: {capitalizedSkill}</p>
+      <Header>{skill.name}</Header>
+      <p className="text-center text-md" style={{ color: "var(--text-color)" }}>
+        {skill.description}
+      </p>
     </div>
   );
 }
-

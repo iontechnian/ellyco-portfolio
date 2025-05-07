@@ -1,19 +1,26 @@
 :root {
-    --blue-color: #2F9FCA;
+  --blue-color: #2f9fca;
+  --pink-color: #e07b8f;
 
   &[data-theme="light"] {
-    --base-color: #F1F1F1;
-    --tone-1-color: #E0E0E0;
-    --tone-2-color: #B8B8B8;
+    --base-color: #f1f1f1;
+    --tone-1-color: #e0e0e0;
+    --tone-2-color: #b8b8b8;
     --text-color: #161616;
-    --pink-color: #EC8398;
+
+    [data-use-text-color="true"] path {
+      fill: var(--text-color);
+    }
   }
 
   &[data-theme="dark"] {
     --base-color: #161616;
     --tone-1-color: #202020;
     --tone-2-color: #404040;
-    --text-color: #F1F1F1;
-    --pink-color: #D37285;
+    --text-color: #f1f1f1;
+
+    [data-use-text-color="true"] path {
+      fill: var(--text-color);
+    }
   }
 }

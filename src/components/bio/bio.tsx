@@ -29,7 +29,7 @@ export default function Bio() {
       className="flex flex-col items-center justify-center"
       style={{ minHeight: windowHeight ? `${windowHeight}px` : "100vh" }}
     >
-      <h1 className="text-[64px] font-bold text-center">
+      <h1 className="text-[64px] font-bold text-center select-none cursor-default">
         E
         <span className="ml-2" style={{ color: "var(--blue-color)" }}>
           \
@@ -50,7 +50,8 @@ export default function Bio() {
           collaborate with clients to transform their business requirements into
           tangible products. With the onset of Artificial Intelligence and its
           prevalence in the industry, this remains a highly valuable skill to
-          have.
+          have. It's a skill that's irreplaceable and essential to make the most
+          of new technologies.
         </p>
       </div>
       <div className="columns-2 gap-[22px] flex justify-center mt-[50px]">
