@@ -14,7 +14,7 @@ export default function SkillChip({
 
   return (
     <button
-      className="px-2 py-1 text-sm inline-block rounded-xl cursor-pointer border-2 border-solid"
+      className="px-2 py-1 text-xs inline-block rounded-xl cursor-pointer border-2 border-solid"
       style={{
         backgroundColor: active ? darkerColor : "transparent",
         borderColor: active ? darkerColor : skill.color,

@@ -1,5 +1,11 @@
 import { ForwardRefExoticComponent, SVGProps } from "react";
 
+export interface Lqip {
+    lqip: string;
+    width: number;
+    height: number;
+    src: string;
+}
 export interface Skill {
     id: string;
     name: string;
@@ -10,23 +16,22 @@ export interface Skill {
     useTextColor?: boolean | undefined;
 }
 
-export type Responsibility =
-    | "Design"
-    | "Development"
-    | "Testing"
-    | "Maintenance"
-    | "Documentation"
-    | "Other";
-
 export interface Project {
     id: string;
     name: string;
     summary: string;
-    image: string;
+    imageSrcSet: string;
+    imageLqip: Lqip;
+    imageCredit?: {
+        creatorName: string;
+        creatorUrl: string;
+        originName: string;
+        originUrl: string;
+    };
     skills: Skill[];
     duration_months: number;
     team_size: number;
-    responsibilities: Responsibility[];
+    responsibilities: string[];
     contributions: { name: string; percentage: number }[];
     nameObfuscated: boolean;
 }

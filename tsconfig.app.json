@@ -22,9 +22,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "types": [
-      "unplugin-icons/types/react"
-    ],
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@data/*": ["./src/data/*"]
+    },
+
+    "types": ["unplugin-icons/types/react", "./global.d.ts"],
 
     "rootDirs": [".", ".react-router/types"]
   },

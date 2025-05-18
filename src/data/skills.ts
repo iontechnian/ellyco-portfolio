@@ -26,6 +26,8 @@ import IconDeno from "~icons/logos/deno";
 import IconElectron from "~icons/logos/electron";
 import IconArduino from "~icons/logos/arduino";
 import IconExpress from "~icons/logos/express";
+import IconGraphql from "~icons/logos/graphql";
+
 // Languages
 const languageSkills = [
   {
@@ -80,6 +82,14 @@ const languageSkills = [
     icon: IconGdscript,
     color: "#478CBF",
   },
+  {
+    id: "graphql",
+    name: "GraphQL",
+    category: "language",
+    description: "Query language for APIs",
+    icon: IconGraphql,
+    color: "#E10098",
+  },
 ] as const;
 
 // Cloud Providers
@@ -93,7 +103,7 @@ const cloudSkills = [
     color: "#FF9900",
   },
   {
-    id: "google-cloud",
+    id: "googleCloud",
     name: "Google Cloud",
     category: "cloud",
     description: "Google's suite of cloud computing services",
