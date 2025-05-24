@@ -7,6 +7,7 @@ import excalibur from "./excalibur";
 import taxchain from "./taxchain";
 import retailsync from "./retailsync";
 import confrence from "./confrence";
+import supportfront from "./supportfront";
 
 const projects: Project[] = [
   natx,
@@ -16,6 +17,7 @@ const projects: Project[] = [
   taxchain,
   retailsync,
   confrence,
+  supportfront,
 ];
 
 export default projects;

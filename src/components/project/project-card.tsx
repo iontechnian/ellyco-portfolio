@@ -13,6 +13,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     if (showExtraSkills) {
       return [
         <div
+          key="back"
           className="px-2 py-1 text-xs inline-block rounded-xl cursor-pointer border-2 border-solid"
           style={{
             backgroundColor: "#555",
@@ -51,6 +52,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     if (project.skills.length > skills.length) {
       chips.push(
         <div
+          key="more"
           className="px-2 py-1 text-xs inline-block rounded-xl cursor-pointer border-2 border-solid"
           style={{
             backgroundColor: "#555",

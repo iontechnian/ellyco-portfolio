@@ -27,7 +27,8 @@ import IconElectron from "~icons/logos/electron";
 import IconArduino from "~icons/logos/arduino";
 import IconExpress from "~icons/logos/express";
 import IconGraphql from "~icons/logos/graphql";
-
+import IconBrainResearch from "~icons/iconoir/brain-research";
+import IconBagPersonal from "~icons/mdi/bag-personal";
 // Languages
 const languageSkills = [
   {
@@ -294,12 +295,36 @@ const technologySkills = [
   },
 ] as const;
 
+// Misc
+const miscSkills = [
+  {
+    id: "investigation",
+    name: "Investigation",
+    category: "misc",
+    description:
+      "Projects that were about investigating rather than development",
+    icon: IconBrainResearch,
+    color: "#B758D1",
+    useTextColor: true,
+  },
+  {
+    id: "personal",
+    name: "Personal",
+    category: "misc",
+    description: "Personal projects not made for a client",
+    icon: IconBagPersonal,
+    color: "#B758D1",
+    useTextColor: true,
+  },
+] as const;
+
 // Combined skills array
 const skills = [
   ...languageSkills,
   ...cloudSkills,
   ...databaseSkills,
   ...technologySkills,
+  ...miscSkills,
 ] as const;
 
 export type SkillId = (typeof skills)[number]["id"];

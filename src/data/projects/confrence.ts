@@ -26,6 +26,14 @@ const confrence: Project = {
   ],
   imageSrcSet: confrenceSrcSet,
   imageLqip: confrenceLqip,
+  imageCredit: {
+    creatorName: "visuals",
+    creatorUrl:
+      "https://unsplash.com/@visuals?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+    originName: "Unsplash",
+    originUrl:
+      "https://unsplash.com/photos/black-and-white-pug-and-brown-and-white-long-coated-small-dog-sW_BS0OVgv0?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash",
+  },
   nameObfuscated: true,
 };
 

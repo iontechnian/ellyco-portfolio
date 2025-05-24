@@ -6,7 +6,7 @@ const labelStyle = {
   fontSize: "12px",
   marginBottom: "4px",
 };
-const inputClassName = "text-md p-2";
+const inputClassName = "text-md p-2 rounded-lg";
 const inputStyle = {
   backgroundColor: "var(--tone-1-color)",
   color: "var(--text-color)",
@@ -59,7 +59,7 @@ export default function Contact() {
             Message:
           </label>
           <textarea
-            className={inputClassName + " mb-[36px]"}
+            className={inputClassName + " mb-[36px] min-h-[100px]"}
             id="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -71,7 +71,7 @@ export default function Contact() {
             <input
               type="checkbox"
               id="sendCopy"
-              className="mr-2 w-8 h-8 relative"
+              className="mr-2 w-8 h-8 relative rounded-lg"
               checked={sendCopy}
               onChange={(e) => setSendCopy(e.target.checked)}
               style={{
@@ -98,7 +98,7 @@ export default function Contact() {
           </div>
           <button
             type="submit"
-            className="py-3 px-10 font-bold cursor-pointer"
+            className="py-2 px-8 font-bold cursor-pointer rounded-lg"
             style={{
               backgroundColor: "var(--blue-color)",
               color: "var(--base-color)",

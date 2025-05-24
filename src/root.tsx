@@ -6,11 +6,11 @@ import "./index.css";
 
 import IconNighlight from "~icons/material-symbols/nightlight";
 import IconSunny from "~icons/material-symbols/sunny";
-
+import SideNav from "./components/side-nav";
 function Logo() {
   return (
-    <div className="fixed top-0 left-0 flex items-center justify-center w-[84px] h-[84px]">
-      <p className="text-[58px] font-bold text-center cursor-default select-none">
+    <div className="fixed top-0 left-0 flex items-center justify-center w-[64px] h-[64px]">
+      <p className="text-[45px] font-bold text-center cursor-default select-none">
         <span style={{ color: "var(--blue-color)" }}>\</span>
         <span style={{ color: "var(--pink-color)" }}>\</span>
       </p>
@@ -61,6 +61,24 @@ export function Layout({ children }: { children: React.ReactNode }) {
             content="width=device-width, initial-scale=1.0"
           />
           <Links />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  function getInitialTheme() {
+                    const savedTheme = localStorage.getItem('theme');
+                    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+                    
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    return prefersDark ? 'dark' : 'light';
+                  }
+                  
+                  const theme = getInitialTheme();
+                  document.documentElement.setAttribute('data-theme', theme);
+                })();
+              `,
+            }}
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -74,6 +92,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </head>
         <body>
           <Logo />
+          <nav className="fixed top-[128px] left-0 w-[64px] h-[calc(100vh-256px)]">
+            <SideNav to="/" name="Home" />
+            <SideNav to="/projects" name="Projects" />
+          </nav>
           <ThemeToggle />
           <div
             className="mx-auto"
