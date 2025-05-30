@@ -2,6 +2,8 @@ import { useState } from "react";
 import SkillChip from "./components/skill-chip";
 import { Skill } from "./data/types";
 import skills from "./data/skills";
+import projects from "./data/projects";
+import ProjectModal from "./components/project/project-modal/project-modal";
 function App() {
   const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
 
@@ -17,6 +19,7 @@ function App() {
           }
         />
       ))}
+      <ProjectModal project={projects[4]} />
     </>
   );
 }

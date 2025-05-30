@@ -1,13 +1,21 @@
 import { Project } from "@data/types";
 import { useState } from "react";
+import { useDevice } from "../../DeviceContext";
 
 import IconEye from "~icons/mdi/eye-outline";
 import IconArrowBack from "~icons/mdi/arrow-back";
 import SkillChip from "../skill-chip";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  onClick,
+}: {
+  project: Project;
+  onClick: () => void;
+}) {
   const [showObfMessage, setShowObfMessage] = useState(false);
   const [showExtraSkills, setShowExtraSkills] = useState(false);
+  const { isMobile } = useDevice();
 
   const skillChips = () => {
     if (showExtraSkills) {
@@ -19,34 +27,41 @@ export default function ProjectCard({ project }: { project: Project }) {
             backgroundColor: "#555",
             borderColor: "#555",
           }}
-          onClick={() => setShowExtraSkills(false)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setShowExtraSkills(false);
+          }}
         >
           <p className="inline-block" style={{ color: "#fff" }}>
             <IconArrowBack />
           </p>
         </div>,
-        ...project.skills
-          .slice(3)
-          .map((skill) => (
-            <SkillChip
-              key={skill.id}
-              skill={skill}
-              active={true}
-              onClick={() => {}}
-            />
-          )),
+        ...project.skills.slice(3).map((skill) => (
+          <SkillChip
+            key={skill.id}
+            skill={skill}
+            active={true}
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          />
+        )),
       ];
     }
     let skills = [...project.skills];
-    if (skills.length > 4) {
-      skills = skills.slice(0, 3);
+    // Show fewer skills on mobile to save space
+    const maxSkills = isMobile ? 2 : 4;
+    if (skills.length > maxSkills) {
+      skills = skills.slice(0, isMobile ? 2 : 3);
     }
     const chips = skills.map((skill) => (
       <SkillChip
         key={skill.id}
         skill={skill}
         active={true}
-        onClick={() => {}}
+        onClick={(event) => {
+          event.stopPropagation();
+        }}
       />
     ));
     if (project.skills.length > skills.length) {
@@ -58,7 +73,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             backgroundColor: "#555",
             borderColor: "#555",
           }}
-          onClick={() => setShowExtraSkills(true)}
+          onClick={(event) => {
+            event.stopPropagation();
+            setShowExtraSkills(true);
+          }}
         >
           <p className="inline-block" style={{ color: "#fff" }}>
             +{project.skills.length - skills.length}
@@ -71,10 +89,11 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   return (
     <div
-      className="max-w-[320px] md:w-[320px] h-[230px] rounded-lg overflow-hidden grid grid-rows-[80px_1fr]"
+      className="max-w-[320px] w-[320px] h-[230px] rounded-lg overflow-hidden grid grid-rows-[80px_1fr] cursor-pointer"
       style={{
         background: `linear-gradient(to bottom, var(--base-color), var(--tone-1-color))`,
       }}
+      onClick={onClick}
     >
       <picture className="w-full h-[80px] block">
         <source srcSet={project.imageSrcSet} type="image/webp" />
@@ -93,7 +112,10 @@ export default function ProjectCard({ project }: { project: Project }) {
             <p className="px-2 pt-2 font-medium">{project.name}</p>
             {!showObfMessage && (
               <button
-                onClick={() => setShowObfMessage(true)}
+                onClick={(event) => {
+                  event.stopPropagation();
+                  setShowObfMessage(true);
+                }}
                 className="cursor-pointer"
               >
                 <IconEye
@@ -115,7 +137,10 @@ export default function ProjectCard({ project }: { project: Project }) {
         {showObfMessage && (
           <div
             className="absolute top-0 left-0 w-full h-full backdrop-blur-xs bg-black/15"
-            onClick={() => setShowObfMessage(false)}
+            onClick={(event) => {
+              event.stopPropagation();
+              setShowObfMessage(false);
+            }}
           >
             <IconEye
               className="pt-1 px-1 absolute top-[1px] right-[1px]"

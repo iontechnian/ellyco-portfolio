@@ -8,7 +8,7 @@ export default function SkillChip({
 }: {
   skill: Skill;
   active: boolean;
-  onClick: () => void;
+  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const darkerColor = new Color(skill.color).darken(0.3).toString();
 

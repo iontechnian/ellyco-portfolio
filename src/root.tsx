@@ -1,5 +1,6 @@
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from "react-router";
 import { ThemeProvider } from "./ThemeContext";
+import { DeviceProvider } from "./DeviceContext";
 import { useTheme } from "./themeUtils";
 import "./theme.css";
 import "./index.css";
@@ -27,7 +28,7 @@ function ThemeToggle() {
       style={{
         position: "fixed",
         bottom: "0.5rem",
-        left: "0.5rem",
+        left: "0rem",
         padding: "0.5rem",
         border: "none",
         borderRadius: "0.25rem",
@@ -47,69 +48,71 @@ function ThemeToggle() {
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <html lang="en">
-        <head>
-          <meta charSet="UTF-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <title>Elly Co</title>
-          <Meta />
-          <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0"
-          />
-          <Links />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                (function() {
-                  function getInitialTheme() {
-                    const savedTheme = localStorage.getItem('theme');
-                    if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+      <DeviceProvider>
+        <html lang="en">
+          <head>
+            <meta charSet="UTF-8" />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <title>Elly Co</title>
+            <Meta />
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
+            <Links />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
+                  (function() {
+                    function getInitialTheme() {
+                      const savedTheme = localStorage.getItem('theme');
+                      if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
+                      
+                      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                      return prefersDark ? 'dark' : 'light';
+                    }
                     
-                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                    return prefersDark ? 'dark' : 'light';
-                  }
-                  
-                  const theme = getInitialTheme();
-                  document.documentElement.setAttribute('data-theme', theme);
-                })();
-              `,
-            }}
-          />
-          <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossOrigin="anonymous"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-            rel="stylesheet"
-          />
-        </head>
-        <body>
-          <Logo />
-          <nav className="fixed top-[128px] left-0 w-[64px] h-[calc(100vh-256px)]">
-            <SideNav to="/" name="Home" />
-            <SideNav to="/projects" name="Projects" />
-          </nav>
-          <ThemeToggle />
-          <div
-            className="mx-auto"
-            style={{
-              maxWidth: "min(1440px, calc(100vw - 168px))",
-              width: "100%",
-            }}
-          >
-            {children}
-          </div>
-          <ScrollRestoration />
-          <Scripts />
-        </body>
-      </html>
+                    const theme = getInitialTheme();
+                    document.documentElement.setAttribute('data-theme', theme);
+                  })();
+                `,
+              }}
+            />
+            <link rel="preconnect" href="https://fonts.googleapis.com" />
+            <link
+              rel="preconnect"
+              href="https://fonts.gstatic.com"
+              crossOrigin="anonymous"
+            />
+            <link
+              href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+              rel="stylesheet"
+            />
+          </head>
+          <body>
+            <Logo />
+            <nav className="fixed top-[128px] left-0 w-[64px] h-[calc(100vh-256px)]">
+              <SideNav to="/" name="Home" />
+              <SideNav to="/projects" name="Projects" />
+            </nav>
+            <ThemeToggle />
+            <div
+              className="mx-auto"
+              style={{
+                maxWidth: "min(1440px, calc(100vw - 128px))",
+                width: "100%",
+              }}
+            >
+              {children}
+            </div>
+            <ScrollRestoration />
+            <Scripts />
+          </body>
+        </html>
+      </DeviceProvider>
     </ThemeProvider>
   );
 }
