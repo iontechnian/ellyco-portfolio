@@ -19,7 +19,7 @@ const confrence: Project = {
   },
   team_size: 2,
   responsibilities: [
-    "Built system for online conferencing",
+    "Built system for online conferencing, using Vonage as the backend",
     "Utilized Firebase for realtime seating list",
     "Implemented moderation tools for event hosts",
   ],

@@ -20,9 +20,9 @@ const photobooth: Project = {
   },
   team_size: 2,
   responsibilities: [
-    "Built infrastructure for face recognition",
-    "Proposed price-concious architecture for image processing",
-    "Implemented automated image moderation",
+    "Built system for face recognition using python libraries and AWS Lambda",
+    "Proposed price-concious infrastructure for image processing, using serverless architecture",
+    "Implemented automated image moderation using AWS Rekognition",
   ],
   contributions: [
     { name: "Backend", percentage: 70 },

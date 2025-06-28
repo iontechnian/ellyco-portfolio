@@ -23,7 +23,7 @@ const kaleidoscope: Project = {
   responsibilities: [
     "Developed project's backend with NestJS and GraphQL",
     "Architectured graph-based representation of event content",
-    "Built Backoffice with Angular 8",
+    "Iterated over proof of concepts within time constraints",
   ],
   contributions: [
     { name: "Backend", percentage: 70 },

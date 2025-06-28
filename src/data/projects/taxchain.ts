@@ -20,8 +20,8 @@ const taxchain: Project = {
   },
   team_size: 2,
   responsibilities: [
-    "Created Architecture for massive imports of transactions",
-    "Implemented tax equation based on transaction history",
+    "Created infrastructure for massive imports of transactions, using serverless architecture",
+    "Implemented tax equations based on transaction history, accounting for regulations on crypto",
     "Supervised junior developer within project",
   ],
   contributions: [

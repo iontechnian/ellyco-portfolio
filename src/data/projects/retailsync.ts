@@ -22,8 +22,8 @@ const retailsync: Project = {
   team_size: 2,
   responsibilities: [
     "Collaborated with client to build microservice architecture",
-    "Built pipeline for syncing Shopifyproducts with Google's Retail API",
-    "Implemented realtime synchronization of inventory",
+    "Built pipeline for syncing Shopify products with Google's Retail API",
+    "Implemented realtime synchronization of Shopify inventory",
   ],
   contributions: [
     { name: "Backend", percentage: 70 },

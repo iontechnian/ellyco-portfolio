@@ -22,8 +22,8 @@ const excalibur: Project = {
   team_size: 4,
   responsibilities: [
     "Architectured project and integration with multisig wallets",
-    "Created Smart Contracts for handling tokenomics",
-    "Created system for parsing transactions",
+    "Created Smart Contracts for handling tokenomics (ERC20-based vesting contract)",
+    "Created system for parsing transactions within ethereum-based chains",
   ],
   contributions: [
     { name: "Infrastructure", percentage: 60 },
