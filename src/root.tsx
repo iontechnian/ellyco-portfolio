@@ -107,6 +107,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
               }}
             >
               {children}
+              <br />
+              <br />
+              <p
+                className="text-center text-sm mt-[70px] mb-[20px]"
+                style={{ color: "var(--text-color)" }}
+              >
+                Created by Elina. EllyCo {new Date().getFullYear()}
+              </p>
+              <br />
             </div>
             <ScrollRestoration />
             <Scripts />

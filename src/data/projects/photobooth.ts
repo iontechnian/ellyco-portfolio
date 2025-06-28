@@ -14,7 +14,10 @@ const photobooth: Project = {
     skillsMap.express,
     skillsMap.aws,
   ],
-  duration_months: 12,
+  duration: {
+    start: { month: 7, year: 2018 },
+    end: { month: 3, year: 2019 },
+  },
   team_size: 2,
   responsibilities: [
     "Built infrastructure for face recognition",

@@ -13,7 +13,10 @@ const confrence: Project = {
     skillsMap.nestjs,
     skillsMap.googleCloud,
   ],
-  duration_months: 8,
+  duration: {
+    start: { month: 1, year: 2020 },
+    end: { month: 7, year: 2020 },
+  },
   team_size: 2,
   responsibilities: [
     "Built system for online conferencing",

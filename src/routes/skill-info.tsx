@@ -27,7 +27,13 @@ export default function SkillInfo({ loaderData }: Route.ComponentProps) {
         {projects
           .filter((project) => project.skills.includes(skill))
           .map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onClick={() => {}}
+              selectedSkills={new Set()}
+              toggleSkill={() => {}}
+            />
           ))}
       </div>
     </div>

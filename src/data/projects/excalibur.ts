@@ -15,7 +15,10 @@ const excalibur: Project = {
     skillsMap.terraform,
     skillsMap.aws,
   ],
-  duration_months: 8,
+  duration: {
+    start: { month: 11, year: 2020 },
+    end: { month: 9, year: 2021 },
+  },
   team_size: 4,
   responsibilities: [
     "Architectured project and integration with multisig wallets",

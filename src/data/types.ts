@@ -16,6 +16,11 @@ export interface Skill {
     useTextColor?: boolean | undefined;
 }
 
+export type MonthYear = {
+    month: number;
+    year: number;
+};
+
 export interface Project {
     id: string;
     name: string;
@@ -29,7 +34,7 @@ export interface Project {
         originUrl: string;
     };
     skills: Skill[];
-    duration_months: number;
+    duration: { start: MonthYear; end: MonthYear | null };
     team_size: number;
     responsibilities: string[];
     contributions: { name: string; percentage: number }[];

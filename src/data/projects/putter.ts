@@ -9,7 +9,10 @@ const putter: Project = {
   name: "Putter",
   summary: "Booking platform for reserving indoor golf putting ranges",
   skills: [skillsMap.typescript, skillsMap.nestjs, skillsMap.aws],
-  duration_months: 5,
+  duration: {
+    start: { month: 11, year: 2023 },
+    end: { month: 4, year: 2024 },
+  },
   team_size: 2,
   responsibilities: [
     "Built an entirely new backend for a second iteration",

@@ -14,11 +14,14 @@ const natx: Project = {
     skillsMap.express,
     skillsMap.aws,
   ],
-  duration_months: 24,
+  duration: {
+    start: { month: 10, year: 2017 },
+    end: { month: 4, year: 2018 },
+  },
   team_size: 2,
   responsibilities: [
-    "Overhaul existing frontend",
-    "Intergrate with third-party exchange framework",
+    "Overhaul existing frontend, rebuilding components for Angular 4",
+    "Intergrate with third-party exchange framework, providing wallets and crypto trading",
     "Implement KYC and notification system",
   ],
   contributions: [

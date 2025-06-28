@@ -2,6 +2,8 @@ import { Project } from "@data/types";
 import ProjectContributions from "../project-contributions";
 import ImageContainer from "./image-container";
 import TitleValueUnit from "./title-value-unit";
+import moment from "moment";
+
 export default function ProjectModal({
   project,
   onClose,
@@ -9,6 +11,22 @@ export default function ProjectModal({
   project: Project;
   onClose?: () => void;
 }) {
+  const endDate = project.duration.end
+    ? moment({
+        day: 1,
+        month: project.duration.end.month - 1,
+        year: project.duration.end.year,
+      }).add(1, "month")
+    : moment();
+  console.log(endDate.toISOString());
+  const durationMonths: number = endDate.diff(
+    moment({
+      day: 1,
+      month: project.duration.start.month - 1,
+      year: project.duration.start.year,
+    }),
+    "months"
+  );
   return (
     <div
       className="fixed top-0 left-0 w-full h-full bg-black/40 overflow-y-auto"
@@ -36,7 +54,7 @@ export default function ProjectModal({
               <div className="m-auto">
                 <TitleValueUnit
                   title="Duration"
-                  value={project.duration_months.toString()}
+                  value={durationMonths.toString()}
                   unit="Months"
                 />
               </div>
@@ -47,7 +65,7 @@ export default function ProjectModal({
                   unit="People"
                 />
               </div>
-              <div className="m-auto">
+              <div className="m-auto max-w-[550px]">
                 <h3
                   className="text-lg font-bold text-center"
                   style={{ color: "var(--text-color)" }}
@@ -58,8 +76,10 @@ export default function ProjectModal({
                   className="list-disc list-inside"
                   style={{ color: "var(--text-color)" }}
                 >
-                  {project.responsibilities.map((responsibility) => (
-                    <li key={responsibility}>{responsibility}</li>
+                  {project.responsibilities.map((responsibility, index) => (
+                    <li key={index} className="pl-6 -indent-6">
+                      {responsibility}
+                    </li>
                   ))}
                 </ul>
               </div>

@@ -13,7 +13,10 @@ const supportfront: Project = {
     skillsMap.nestjs,
     skillsMap.aws,
   ],
-  duration_months: 4,
+  duration: {
+    start: { month: 7, year: 2023 },
+    end: { month: 10, year: 2023 },
+  },
   team_size: 2,
   responsibilities: [
     "Lead technicial decision-making, prioritizing under time constraints",

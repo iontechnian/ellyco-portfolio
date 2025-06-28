@@ -15,7 +15,10 @@ const kaleidoscope: Project = {
     skillsMap.angular,
     skillsMap.aws,
   ],
-  duration_months: 12,
+  duration: {
+    start: { month: 4, year: 2019 },
+    end: { month: 12, year: 2019 },
+  },
   team_size: 2,
   responsibilities: [
     "Developed project's backend with NestJS and GraphQL",

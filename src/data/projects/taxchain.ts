@@ -14,7 +14,10 @@ const taxchain: Project = {
     skillsMap.nestjs,
     skillsMap.aws,
   ],
-  duration_months: 10,
+  duration: {
+    start: { month: 10, year: 2021 },
+    end: { month: 7, year: 2022 },
+  },
   team_size: 2,
   responsibilities: [
     "Created Architecture for massive imports of transactions",

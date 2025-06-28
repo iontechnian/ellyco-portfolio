@@ -15,7 +15,10 @@ const retailsync: Project = {
     skillsMap.react,
     skillsMap.googleCloud,
   ],
-  duration_months: 12,
+  duration: {
+    start: { month: 8, year: 2022 },
+    end: { month: 6, year: 2023 },
+  },
   team_size: 2,
   responsibilities: [
     "Collaborated with client to build microservice architecture",
