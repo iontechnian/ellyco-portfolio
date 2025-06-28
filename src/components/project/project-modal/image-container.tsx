@@ -33,7 +33,10 @@ export default function ImageContainer({
             "linear-gradient(to bottom, rgb(from var(--base-color) r g b / 0), rgb(from var(--base-color) r g b / 1))",
         }}
       ></div>
-      <button className="absolute top-0 right-0 m-4" onClick={onClose}>
+      <button
+        className="absolute top-0 right-0 m-4 cursor-pointer"
+        onClick={onClose}
+      >
         <IconClose className="w-10 h-10" style={{ color: "white" }} />
       </button>
       <div className="relative w-fit h-fit m-10">{children}</div>

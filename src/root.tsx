@@ -102,7 +102,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <div
               className="mx-auto"
               style={{
-                maxWidth: "min(1440px, calc(100vw - 128px))",
+                maxWidth: "min(1440px, calc(100vw - 160px))",
                 width: "100%",
               }}
             >

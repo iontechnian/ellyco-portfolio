@@ -1,4 +1,4 @@
-import { Project } from "@data/types";
+import type { Project, Skill } from "@data/types";
 import { useState } from "react";
 import { useDevice } from "../../DeviceContext";
 
@@ -9,15 +9,23 @@ import SkillChip from "../skill-chip";
 export default function ProjectCard({
   project,
   onClick,
+  selectedSkills,
+  toggleSkill,
 }: {
   project: Project;
   onClick: () => void;
+  selectedSkills: Set<Skill>;
+  toggleSkill: (skill: Skill) => void;
 }) {
   const [showObfMessage, setShowObfMessage] = useState(false);
   const [showExtraSkills, setShowExtraSkills] = useState(false);
   const { isMobile } = useDevice();
 
   const skillChips = () => {
+    const sortedSkills = [
+      ...project.skills.filter((skill) => selectedSkills.has(skill)),
+      ...project.skills.filter((skill) => !selectedSkills.has(skill)),
+    ];
     if (showExtraSkills) {
       return [
         <div
@@ -36,19 +44,20 @@ export default function ProjectCard({
             <IconArrowBack />
           </p>
         </div>,
-        ...project.skills.slice(3).map((skill) => (
+        ...sortedSkills.slice(3).map((skill) => (
           <SkillChip
             key={skill.id}
             skill={skill}
-            active={true}
+            active={selectedSkills.size === 0 || selectedSkills.has(skill)}
             onClick={(event) => {
               event.stopPropagation();
+              toggleSkill(skill);
             }}
           />
         )),
       ];
     }
-    let skills = [...project.skills];
+    let skills = [...sortedSkills];
     // Show fewer skills on mobile to save space
     const maxSkills = isMobile ? 2 : 4;
     if (skills.length > maxSkills) {
@@ -58,9 +67,10 @@ export default function ProjectCard({
       <SkillChip
         key={skill.id}
         skill={skill}
-        active={true}
+        active={selectedSkills.size === 0 || selectedSkills.has(skill)}
         onClick={(event) => {
           event.stopPropagation();
+          toggleSkill(skill);
         }}
       />
     ));

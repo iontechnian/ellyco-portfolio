@@ -8,6 +8,7 @@ import taxchain from "./taxchain";
 import retailsync from "./retailsync";
 import confrence from "./confrence";
 import supportfront from "./supportfront";
+import putter from "./putter";
 
 const projects: Project[] = [
   natx,
@@ -18,6 +19,7 @@ const projects: Project[] = [
   retailsync,
   confrence,
   supportfront,
+  putter,
 ];
 
 export default projects;

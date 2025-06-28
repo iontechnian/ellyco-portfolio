@@ -24,3 +24,54 @@
     }
   }
 }
+
+/* Scrollbar styling for dark theme */
+:root[data-theme="dark"] {
+  /* Modern CSS Scrollbar (Firefox and newer browsers) */
+  scrollbar-width: thin;
+  scrollbar-color: var(--tone-1-color) var(--base-color);
+}
+
+:root[data-theme="dark"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+:root[data-theme="dark"] *::-webkit-scrollbar-track {
+  background: var(--base-color);
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] *::-webkit-scrollbar-thumb {
+  background: var(--tone-1-color);
+  border-radius: 4px;
+}
+
+:root[data-theme="dark"] *::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}
+
+/* Light theme scrollbars for consistency */
+:root[data-theme="light"] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tone-2-color) var(--base-color);
+}
+
+:root[data-theme="light"] *::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+:root[data-theme="light"] *::-webkit-scrollbar-track {
+  background: var(--base-color);
+  border-radius: 4px;
+}
+
+:root[data-theme="light"] *::-webkit-scrollbar-thumb {
+  background: var(--tone-2-color);
+  border-radius: 4px;
+}
+
+:root[data-theme="light"] *::-webkit-scrollbar-thumb:hover {
+  background: var(--text-color);
+}

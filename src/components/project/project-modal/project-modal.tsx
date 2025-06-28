@@ -11,7 +11,7 @@ export default function ProjectModal({
 }) {
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-black/40 overflow-y-scroll"
+      className="fixed top-0 left-0 w-full h-full bg-black/40 overflow-y-auto"
       onClick={onClose}
     >
       <div className="min-h-full flex items-center justify-center p-4">
