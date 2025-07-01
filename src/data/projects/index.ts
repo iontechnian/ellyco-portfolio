@@ -9,6 +9,7 @@ import retailsync from "./retailsync";
 import confrence from "./confrence";
 import supportfront from "./supportfront";
 import putter from "./putter";
+import lighthouse from "./lighthouse";
 
 const projects: Project[] = [
   natx,
@@ -20,6 +21,7 @@ const projects: Project[] = [
   confrence,
   supportfront,
   putter,
+  lighthouse,
 ];
 
 export default projects;
